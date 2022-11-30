@@ -19,6 +19,19 @@ Aşağıdakileri yapın:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let surucuYasi = 23;
+if(surucuYasi>18){
+  console.log(true)
+}else{
+  console.log(false)
+}
+
+let surucuYasi1 = 17;
+if(surucuYasi1>18){
+  console.log(true)
+}else{
+  console.log(false)
+}
 
 
 
@@ -33,7 +46,14 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let birinciDeger = 5;
+let ikinciDegeri = 7;
 
+if(birinciDeger<ikinciDegeri){
+  birinciDeger = 9;
+}else{
+  console.log(birinciDeger)
+}
 
 
 
@@ -49,7 +69,9 @@ Aşağıdakileri yapın:
    İPUCU: Number metoduna bakabilirsin
 */
 
-
+let sayi = "1999"
+sayi = parseInt(sayi)
+typeof(sayi)
 
 
 /*
@@ -60,10 +82,14 @@ Aşağıdakileri yapın:
    2. Aşağıdaki çarpma fonksiyonunu çağırarak, 2 sayıyı bu fonksiyona iletin
    3. a ve b'yi çarpıp, sonucu dönün
 */
-
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+let sonuc2;
+function carpma(a,b){
+return a * b 
 }
+sonuc2 = carpma(2,4)
+console.log(sonuc2)
+
+
 
 
 
@@ -77,9 +103,12 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+ let yasHesaplama;
+  function kopeginYasi(insanYasi){
+  return insanYasi * 7;
 }
+yasHesaplama = kopeginYasi(5);
+console.log(yasHesaplama);
 
 
 
@@ -105,8 +134,47 @@ OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı ye
 */
 
 function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+  if((oyuncu==="Taş")|| (oyuncu === "Kağıt")||(oyuncu==="Makas")&&(bilgisayar==="Taş")|| (bilgisayar === "Kağıt")||(bilgisayar==="Makas")){
+      if(oyuncu===bilgisayar){
+        let sonuc = "Beraberlik";
+        return sonuc;
+      }
+      else if((oyuncu==="Taş"&&bilgisayar==="Makas")||(oyuncu==="Kağıt"&&bilgisayar==="Taş")||(oyuncu==="Makas"&&bilgisayar==="Kağıt")){
+        let sonuc = "Kazandın!";
+        return sonuc;
+      }
+      else{
+        let sonuc = "Kaybettin!"
+        return sonuc;
+      }
+      
+    }
+  else{
+    console.log("Yazım kurallarına uymadığı için teste devam edemezssin..")
+
+  }
 }
+let bilgisayar = bilgisayarSecimi()
+function bilgisayarSecimi(){
+  let bilgisayarRandom = Math.ceil(Math.random()*3)
+  let bilgisayarınDurumu;
+  if(bilgisayarRandom===1){
+    bilgisayarınDurumu = "Taş";
+  }
+  else if(bilgisayarRandom===2){
+    bilgisayarınDurumu = "Makas"
+  }
+  else{
+    bilgisayarınDurumu = "Kağıt"
+
+  }
+  return bilgisayarınDurumu;
+}
+console.clear()
+let oyuncu = "Taş"
+console.log(oyun(oyuncu,bilgisayar))
+
+
 
 
 
@@ -120,9 +188,12 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+let sonuc;
+function milDonusturucu(km){
+  return km * 0.621371
 }
+sonuc = milDonusturucu(5)
+console.log(sonuc)
 
 
 
@@ -134,9 +205,12 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+let sonuc1;
+function feetDonusturucu(cm){
+return cm / 30.48
 }
+sonuc1 = feetDonusturucu(20);
+console.log(sonuc1)
 
 
 
@@ -153,10 +227,14 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
-}
 
+function cocukSarkisi(x){
+return `${x} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`
+}
+let y = 11
+for(let i=y;i>0;i--){
+console.log(cocukSarkisi(i));
+}
 
 /* Görev 6 : Not Hesaplayıcı */
 
@@ -173,9 +251,27 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+console.clear()
+function notHesapla(not){
+  let sonuc;
+ 
+  if(not >= 90 && not <= 100){
+  return sonuc = "A aldın"
 }
+ else if(not >=80 && not <= 89){
+   return sonuc = "B aldın"
+  }
+  else if(not >=70 && not<= 79){
+    return sonuc = "C aldın"
+  }
+  else if(not >= 60 && not <= 69){
+    return sonuc = "D aldın"
+  }
+  else{
+    return sonuc = "F aldın"
+  }
+}
+console.log(notHesapla(60))
 
 
 
